@@ -1,0 +1,2 @@
+How to connect with SSH: ssh -i <key directory> ubuntu@<ip address>
+
