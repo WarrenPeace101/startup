@@ -24,4 +24,4 @@ IP Address: http://3.16.202.39/
 
 ## Simon Project
 
-So far I've played around with the raw HTML files from the Simon project. I messed with the SVG, changing the shapes of the Simon buttons. I also played around with various minor features, such as tweeking the scoreboard. I really enjoyed updating the icon to Simon Peter hehe. So far I've learned basic HTML formatting, and why something like CSS is so necessary. I also think that the script for uploading files to my server is nifty.
+So far I've played around with the raw HTML files from the Simon project. I messed with the SVG, changing the shapes of the Simon buttons. I also played around with various minor features, such as tweeking the scoreboard. I really enjoyed updating the icon to Simon Peter hehe. So far I've learned basic HTML formatting, and why something like CSS is so necessary. I also think that the script for uploading files to my server is pretty cool.
