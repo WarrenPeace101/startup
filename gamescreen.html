@@ -4,8 +4,8 @@
         <meta charset="UTF8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="myCSS.css">
-        
+        <link rel="stylesheet" href="gamescreenCSS.css">
+
         <title>Frogger</title>
     </head>
 
@@ -16,39 +16,42 @@
 
         <main>
 
-            <span class="flyZone"> flies go here</span>
+            <div class="flyZone"></div>
             <br>
-            <span class="riverOne">river goes here</span>
+            <div class="riverOne"></div>
             <br>
-            <span class="riverTwo">and here</span>
+            <div class="riverTwo"></div>
             <br>
-            <span class="riverThree">and here</span>
+            <div class="riverThree"></div>
             <br>
-            <span class="riverFour">and here</span>
+            <div class="riverFour"></div>
             <br>
-            <span class="highwayOne">road goes here</span>
+            <div class="highwayOne"></div>
             <br>
-            <span class="highwayTwo">and here</span>
+            <div class="highwayTwo"></div>
             <br>
-            <span class="safeZone">grass, trees</span>
+            <div class="safeZone"></div>
             <br>
-            <span class="highwayThree">more road</span>
+            <div class="highwayThree"></div>
             <br>
-            <span class="highwayFour">even more road</span>
+            <div class="highwayFour"></div>
             <br>
-            <span class="highwayFive">even more road</span>
+            <div class="highwayFive"></div>
             <br>
-            <span class="startingZone">frog starts here</span>
+            <div class="startingZone"></div>
             <br>
 
         </main>
 
         <footer>
-            <span>Lives</span>
+            <span class="lives">
+                <div>Lives:</div>
+                <div id="heart"></div>
+            </span>
             <br>
-            <span>Chat goes here</span>
+            <span class="liveChat">Chat goes here</span>
             <br>
-            <button><a href="homescreen.html">Leave Game</a></button>
+            <button id="leaveGameButton"><a id="leaveGameText" href="homescreen.html">Leave Game</a></button>
 
         </footer>
     </body>

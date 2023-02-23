@@ -1,0 +1,149 @@
+body {
+
+}
+
+main {
+    box-sizing: border-box;
+    padding: none;
+    vertical-align: top;
+}
+
+footer {
+
+}
+
+.flyZone {
+    outline-style: solid;
+    outline-color: black;
+    box-sizing: border-box;
+    padding: none;
+    border: none;
+    position: relative;
+    height: 90px;
+    width: 100vw;
+    background-color: #fff2cc;
+}
+
+.riverOne {
+    outline-style: solid;
+    outline-color: black;
+    box-sizing: border-box;
+    padding: none;
+    border: none;
+    position: relative;
+    height: 70px;
+    width: 100vw;
+    background-color: #3d85c6;
+
+}
+
+.riverTwo {
+    position: relative;
+    height: 70px;
+    width: 100vw;
+    background-color: #4499e5;
+
+}
+
+.riverThree {
+    position: relative;
+    height: 70px;
+    width: 100vw;
+    background-color: #3d85c6;
+
+
+}
+
+.riverFour {
+    position: relative;
+    height: 70px;
+    width: 100vw;
+    background-color: #4499e5;
+
+
+}
+
+.highwayOne {
+    position: relative;
+    height: 50px;
+    width: 100vw;
+    background-color: #bcbcbc;
+
+
+}
+
+.highwayTwo {
+    position: relative;
+    height: 50px;
+    width: 100vw;
+    background-color: #A9A9A9;
+
+
+}
+
+.safeZone {
+    position: relative;
+    height: 50px;
+    width: 100vw;
+    background-color: #65d565;
+
+
+}
+
+.highwayThree {
+    position: relative;
+    height: 50px;
+    width: 100vw;
+    background-color: #bcbcbc;
+
+}
+
+.highwayFour {
+    position: relative;
+    height: 50px;
+    width: 100vw;
+    background-color: #A9A9A9;
+
+
+}
+
+.startingZone {
+    position: relative;
+    height: 50px;
+    width: 100vw;
+    background-color: #65d565;
+}
+
+.lives {
+
+}
+
+.liveChat {
+
+}
+
+#leaveGameButton {
+    position: relative;
+    text-align: center;
+    float: right;
+    background-color: green;
+}
+
+#leaveGameText {
+    color: white;
+}
+
+.lives {
+    color: maroon;
+    font-size: 1.5em;
+}
+
+#heart {
+    content: '&#9829';
+}
+
+.livechat {
+    color: white;
+    background-color: gray;
+
+}
