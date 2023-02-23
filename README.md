@@ -25,3 +25,5 @@ IP Address: http://3.16.202.39/
 ## Simon Project
 
 So far I've played around with the raw HTML files from the Simon project. I messed with the SVG, changing the shapes of the Simon buttons. I also played around with various minor features, such as tweeking the scoreboard. I really enjoyed updating the icon to Simon Peter hehe. So far I've learned basic HTML formatting, and why something like CSS is so necessary. I also think that the script for uploading files to my server is pretty cool.
+
+I've continued with Simon 2.0 by updating the CSS of the project. I utilized a little bit of Bootstrap and some personal selectors, changing the theme of the game to a maroon color. I made the scoreboard stand out more from the background with border colors, as well as changing the size and alignment of the about page. I enjoyed making the navigation bar in the header using the flex property, as well by alternating between visible and invisible sections. I also really like the shadow text effect for the main title.
