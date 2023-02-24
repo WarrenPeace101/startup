@@ -1,0 +1,151 @@
+body {
+    position: relative;
+}
+
+header {
+
+    position: relative;
+    height: 20vh;
+    width: 100vw;
+    text-align: center;
+    color: green;
+    background: #00FFFF;
+    
+}
+
+.createFrogTitle {
+
+    position: relative;
+    top: 6vh;
+    font-size: 3.5em;
+    text-align: center;
+    text-shadow: 1px 1px #003300;
+
+}
+
+main {
+    position:relative;
+    background-color: #65d565;
+    text-align: center;
+    height: 55vh;
+    width: 100vw;
+}
+
+.road {
+    height: 150px;
+    width: 100vw;
+    background-color: gray;
+    
+}
+
+#line {
+    position: relative;
+    top: 46px;
+    height: 60px;
+    width: 100vw;
+    background: repeating-linear-gradient(
+    to right,
+    yellow,
+    yellow 90px,
+    transparent 90px,
+    transparent 180px
+  );
+
+}
+
+#frogLabelForm {
+    position: relative;
+    top: 16vh;
+    font-size: 2em;
+}
+
+#frogName {
+    background-color: green;
+    position: relative;
+    top: 16vh;
+    height: 40px;
+    width: 170px;
+    color: white;
+}
+
+#passwordLabel {
+    position: relative;
+    top: 21vh;
+    font-size: 2em;
+}
+
+#password {
+    background-color: green;
+    position: relative;
+    top: 21vh;
+    height: 40px;
+    width: 170px;
+    color: white;
+}
+
+#chooseColorTitle {
+    position: relative;
+    font-size: 2em;
+    top: 29vh;
+    right: 12vw;
+
+}
+
+#chooseColor {
+    padding-top: 10px;
+    position: relative;
+    top: 22vh;
+    left: 43vw;
+    height: 60px;
+    width: 400px;
+    color: white;
+    background-color: green;
+}
+
+footer {
+    position: relative;
+    height: 20vh;
+    width: 100vw;
+    background-color: #65d565; 
+
+}
+
+#createFrogButton {
+    color: white;
+    text-align: center;
+    position: relative;
+    height: 40px;
+    width: 120px;
+    top: 6vh;
+    left:30vw;
+    background: green;
+    outline-style: solid;
+    outline-color: black; 
+}
+
+#backButton {
+    color: white;
+    text-align: center;
+    position: relative;
+    height: 40px;
+    width: 120px;
+    top: 6vh;
+    left:55vw;
+    background: green;
+    outline-style: solid;
+    outline-color: black;
+
+}
+
+#backText {
+
+    color: white;
+}
+
+#createFrogText {
+    color: white;
+}
+
+::placeholder {
+    color: white;
+  }

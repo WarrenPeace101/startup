@@ -4,7 +4,7 @@
         <meta charset="UTF8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="myCSS.css">
+        <link rel="stylesheet" href="createfrogCSS.css">
 
         <title> Creating Froggy </title>
     </head>
@@ -12,19 +12,21 @@
     <body>
 
         <header>
-            <h2>Create Your Frog</h2>
+            <h2 class="createFrogTitle">Create Your Frog</h2>
         </header>
 
         <main>
-            <br>
-            <label for="frogName">Frog Name</label>
+            <div class = road>
+                <div id="line">
+            </div>
+            <label id="frogLabelForm" for="frogName">Frog Name:</label>
             <input type="text" id="frogName" name="varFrogName" placeholder="Froggy"/>
             <br>
-            <label for="password">Password</label>
+            <label id="passwordLabel" for="password">Password:</label>
             <input type="text" id="password" name="varPassword" placeholder="123"/>
             <br>
-            <fieldset>
-                <legend>Frog Color</legend>
+            <div id="chooseColorTitle">Frog Color:</div>
+            <fieldset id="chooseColor">
                 <label for="greenFrog">Green</label>
                 <input type="radio" id="greenFrog" name="varFrog" value="greenFrog" checked/>
                 <label for="blueFrog">Blue</label>
@@ -38,8 +40,8 @@
         </main>
 
         <footer>
-            <button><a href="homescreen.html">Create Frog</a></button>
-            <button><a href="homescreen.html">Back</a></button>
+            <button id="createFrogButton"><a id="createFrogText" href="homescreen.html">Create Frog</a></button>
+            <button id="backButton"><a id="backText" href="homescreen.html">Back</a></button>
         </footer>
 
 

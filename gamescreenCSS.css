@@ -6,6 +6,10 @@ main {
     box-sizing: border-box;
     padding: none;
     vertical-align: top;
+    outline-style: solid;
+    outline-color: black;
+    border-right-color: black;
+    border-right-style: solid;
 }
 
 footer {
@@ -13,23 +17,14 @@ footer {
 }
 
 .flyZone {
-    outline-style: solid;
-    outline-color: black;
-    box-sizing: border-box;
-    padding: none;
-    border: none;
     position: relative;
-    height: 90px;
+    height: 70px;
     width: 100vw;
     background-color: #fff2cc;
 }
 
 .riverOne {
-    outline-style: solid;
-    outline-color: black;
-    box-sizing: border-box;
-    padding: none;
-    border: none;
+
     position: relative;
     height: 70px;
     width: 100vw;
@@ -51,21 +46,11 @@ footer {
     width: 100vw;
     background-color: #3d85c6;
 
-
-}
-
-.riverFour {
-    position: relative;
-    height: 70px;
-    width: 100vw;
-    background-color: #4499e5;
-
-
 }
 
 .highwayOne {
     position: relative;
-    height: 50px;
+    height: 70px;
     width: 100vw;
     background-color: #bcbcbc;
 
@@ -74,7 +59,7 @@ footer {
 
 .highwayTwo {
     position: relative;
-    height: 50px;
+    height: 70px;
     width: 100vw;
     background-color: #A9A9A9;
 
@@ -83,7 +68,7 @@ footer {
 
 .safeZone {
     position: relative;
-    height: 50px;
+    height: 70px;
     width: 100vw;
     background-color: #65d565;
 
@@ -92,7 +77,7 @@ footer {
 
 .highwayThree {
     position: relative;
-    height: 50px;
+    height: 70px;
     width: 100vw;
     background-color: #bcbcbc;
 
@@ -100,22 +85,27 @@ footer {
 
 .highwayFour {
     position: relative;
-    height: 50px;
+    height: 70px;
     width: 100vw;
     background-color: #A9A9A9;
 
 
 }
 
-.startingZone {
+.highwayFive {
     position: relative;
-    height: 50px;
+    height: 70px;
     width: 100vw;
-    background-color: #65d565;
+    background-color: #bcbcbc;
+
+
 }
 
-.lives {
-
+.startingZone {
+    position: relative;
+    height: 70px;
+    width: 100vw;
+    background-color: #65d565;
 }
 
 .liveChat {
@@ -133,17 +123,11 @@ footer {
     color: white;
 }
 
-.lives {
-    color: maroon;
-    font-size: 1.5em;
-}
-
-#heart {
-    content: '&#9829';
-}
 
 .livechat {
     color: white;
-    background-color: gray;
+    background-color: #8972c2;
+    outline-style: solid;
+    outline-color: black;
 
 }
