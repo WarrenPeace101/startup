@@ -1,5 +1,5 @@
 body {
-
+    border-right-style: solid;
 }
 
 main {
@@ -21,6 +21,66 @@ footer {
     height: 70px;
     width: 100vw;
     background-color: #fff2cc;
+}
+
+#fly {
+
+    position: relative;
+    left: 10vw;
+    top: 2.8vh;
+    height: 9px;
+    width: 9px;
+    background-color: purple;
+    outline-style: solid;
+
+    
+}
+
+#fly2 {
+
+    position: relative;
+    left: 25vw;
+    top: 2.7vh;
+    height: 9px;
+    width: 9px;
+    background-color: blue;
+    outline-style: solid;
+
+}
+
+#fly3 {
+
+    position: relative;
+    left: 45vw;
+    top: 2vh;
+    height: 9px;
+    width: 9px;
+    background-color: red;
+    outline-style: solid;
+
+}
+
+#fly4 {
+
+    position: relative;
+    left: 65vw;
+    top: 1.2vh;
+    height: 9px;
+    width: 9px;
+    background-color: yellow;
+    outline-style: solid;
+
+}
+
+#fly5 {
+
+    position: relative;
+    left: 85vw;
+    height: 9px;
+    width: 9px;
+    background-color: orange;
+    outline-style: solid;
+
 }
 
 .riverOne {
@@ -48,6 +108,27 @@ footer {
 
 }
 
+#log {
+    position: relative;
+    top: 15px;
+    left: 30vw;
+    height: 35px;
+    width: 100px;
+    background-color: brown;
+
+}
+
+#log2 {
+
+    position: relative;
+    top: 15px;
+    left: 85vw;
+    height: 35px;
+    width: 100px;
+    background-color: brown;
+
+}
+
 .highwayOne {
     position: relative;
     height: 70px;
@@ -72,7 +153,32 @@ footer {
     width: 100vw;
     background-color: #65d565;
 
+}
 
+#barrier1 {
+    position: relative;
+    height: 70px;
+    width: 130px;
+    background: gray;
+    left: 15vw;
+}
+
+#barrier2 {
+    position: relative;
+    height: 74px;
+    width: 130px;
+    background: gray;
+    left: 45vw;
+    bottom: 8.5vh;
+}
+
+#barrier3 {
+    position: relative;
+    height: 74px;
+    width: 130px;
+    background: gray;
+    left: 80vw;
+    bottom: 17.3vh;
 }
 
 .highwayThree {
@@ -97,9 +203,87 @@ footer {
     height: 70px;
     width: 100vw;
     background-color: #bcbcbc;
+}
 
+.truck {
 
 }
+
+#truck-body {
+    position: relative;
+    background: #C0C0C0;
+    height: 40px;
+    width: 120px;
+    top: 10px;
+    left: 60vw;
+    outline-style: solid;
+
+  }
+  
+#truck-front {
+    position: relative;
+    background: #990000;
+    left:57.5vw;
+    bottom: 9px;
+    height: 20px;
+    width: 37px;
+  }
+  
+#left-wheel {
+    position: relative;
+    background: #999900;
+    border-radius: 40%;
+    left: 60vw;
+    bottom: 10px;
+    height: 17px;
+    width: 17px;
+  }
+
+#right-wheel {
+    position: relative;
+    background: #999900;
+    border-radius: 40%;
+    left: 66.8vw;
+    bottom: 27px;
+    height: 17px;
+    width: 17px;
+  }
+
+  .car {
+
+  }
+
+  #car-body {
+    position: relative;
+    height: 40px;
+    width: 100px;
+    left: 30vw;
+    top: 5px;
+    background-color: aquamarine;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+
+  }
+
+  #car-left-wheel {
+    position: relative;
+    background: black;
+    border-radius: 40%;
+    left: 31vw;
+    bottom:5px;
+    height: 17px;
+    width: 17px; 
+  }
+
+  #car-right-wheel {
+    position: relative;
+    background: black;
+    border-radius: 40%;
+    left: 34.5vw;
+    bottom: 22px;
+    height: 17px;
+    width: 17px; 
+  }
 
 .startingZone {
     position: relative;
@@ -108,9 +292,91 @@ footer {
     background-color: #65d565;
 }
 
-.liveChat {
+.greenFrog {
 
 }
+
+#left-eye {
+    height: 20px;
+    width: 30px;
+    position: relative;
+    border-radius: 40%;
+    background: #55CC00;
+    left: 22vw;
+    bottom: 7vh;
+  }
+  
+  #left-pupil {
+    height: 13px;
+    width: 20px;
+    position: relative;
+    border-radius: 40%;
+    background: #000000;
+    left: 22.3vw;
+    bottom: 9vh;
+  }
+  
+  #right-eye {
+    height: 20px;
+    width: 30px;
+    position: relative;
+    border-radius: 40%;
+    background: #55CC00;
+    left: 24.2vw;
+    bottom: 11vh;
+  }
+  
+  #right-pupil {
+    height: 13px;
+    width: 20px;
+    position: relative;
+    border-radius: 40%;
+    background: #000000;
+    left: 24.5vw;
+    bottom: 13vh;
+    
+  }
+  
+  #smile {
+    height: 10px;
+    width: 20px;
+    position: relative;
+    background: transparent;
+    border-bottom: 3px solid #000000;
+    border-radius: 20%;
+    left: 23.5vw;
+    bottom: 11vh;
+  }
+  
+  #right-foot {
+    height: 10px;
+    width: 25px;
+    position: relative;
+    border-radius: 40%;
+    background: #55DD00;
+    left: 24vw;
+    bottom: 11vh;
+  }
+  
+  #left-foot {
+    height: 10px;
+    width: 25px;
+    position: relative;
+    border-radius: 40%;
+    background: #55DD00;
+    left: 22vw;
+    bottom: 10vh;
+  }
+  
+  #frog-body {
+    height: 45px;
+    width: 60px;
+    position: relative;
+    border-radius: 40%;
+    background: #55CC00;
+    left: 22vw;
+
+  }
 
 #leaveGameButton {
     position: relative;
