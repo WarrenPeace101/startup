@@ -18,9 +18,13 @@ Some features include:
 * first player to complete the game (cross the obstacles into the safe zone five times) wins
 * if you get run over or drown three times, you lose
 
-Domain Name: https://warrenfrogger.click/ 
+Frogger: https://startup.warrenfrogger.click/
+Simon: https://simon.warrenfrogger.click/
+About Me: https://warrenfrogger.click/
 
-IP Address: http://3.16.202.39/
+## Startup Notes
+
+I've had a lot of fun (and a little bit of sweat) learning the different CSS elements. I combined different elements together to create a frog, a truck, a car, and some other stuff! I also played around with the borders of the page for a while (using flex and relative), even though they are still a little off. I've learned that changing even one tiny detail in the CSS can completely throw off the entire page, so I'm not sure if I'll change it much more. But still I think it's super cool that you can have so much customizaiton.
 
 ## Simon Project
 
