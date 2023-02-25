@@ -12,8 +12,9 @@ header {
 }
 
 main {
-    flex: 1 100vh;
+    flex: 1 0vh;
     width: 100vw;
+    height: 20vh;
     background-color: #65d565;
 }
 
