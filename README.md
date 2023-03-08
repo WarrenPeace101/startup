@@ -314,7 +314,7 @@ Always include expiration date
 Can  require organization approval
 Personal access tokens can only be used for HTTPS git operations
 GitHub writing and formatting (Markdown)
-# large heading ###### small heading
+ large heading small heading
 ** bold text **
 * italic text *
 ~~ strikethrough text ~~
