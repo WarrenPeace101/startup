@@ -570,6 +570,8 @@ Grid-template-columns: specifies
 Flexboxes: elements responsively adjust
 Uses ratios to orient the page
 
+ssh -i [key pair file] ubuntu@[ip address]
+
 
 
 
