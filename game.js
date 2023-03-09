@@ -1,11 +1,13 @@
 
-const greenFrogEl = document.querySelector("#frog-body");
+
+const greenFrogEl = document.getElementById("frogID");
+//const greenFrogEl = document.querySelector("#frog-body");
 
 document.addEventListener("keydown", (e) => {
 
     if (e.key === "a") {
 
-        greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) + 5 + 'px';
+        greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) - 5 + 'px';
     }
     else if (e.key === "w") {
 
@@ -20,7 +22,7 @@ document.addEventListener("keydown", (e) => {
     else if (e.key === "d") {
 
 
-        greenFrogEl.style.right = parseFloat(greenFrogEl.style.right || 0) - 5 + "px";
+        greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) + 5 + "px";
 
     }
 });
@@ -35,11 +37,12 @@ function driveRight() {
 function driveLeft() {
     
     //truckEl.style.left = parseFloat(truckEl.style.left || 0) - 1000 + "px";
+    console.log("testing");
     truckEl.style.background = 'blue';
 
 }
 
-document.addEventListener("load", () => {
+/*document.addEventListener("load", () => {
 
     truckEl.style.left = parseFloat(truckEl.style.left || 0) - 1000 + "px";
 
