@@ -5,11 +5,11 @@ document.addEventListener("keydown", (e) => {
 
     if (e.key === "a") {
 
-        greenFrogEl.style.left = parseFloat(greenFrogEl.style.left) + 1 + 'vw';
+        greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) + 5 + 'px';
     }
     else if (e.key === "w") {
 
-        greenFrogEl.style.top = parseFloat(greenFrogEl.style.top) - 5 + 'px';
+        greenFrogEl.style.top = parseFloat(greenFrogEl.style.top || 0) - 5 + 'px';
         
     }
     else if (e.key === "s") {
@@ -19,13 +19,25 @@ document.addEventListener("keydown", (e) => {
     }
     else if (e.key === "d") {
 
+
         greenFrogEl.style.right = parseFloat(greenFrogEl.style.right || 0) - 5 + "px";
 
     }
-
 });
 
+
 const truckEl = document.querySelector("#truck-body");
+
+function driveRight() {
+
+}
+
+function driveLeft() {
+    
+    //truckEl.style.left = parseFloat(truckEl.style.left || 0) - 1000 + "px";
+    truckEl.style.background = 'blue';
+
+}
 
 document.addEventListener("load", () => {
 
