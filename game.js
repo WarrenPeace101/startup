@@ -1,7 +1,6 @@
-
+let userAlive = true;
 
 const greenFrogEl = document.getElementById("frogID");
-//const greenFrogEl = document.querySelector("#frog-body");
 
 document.addEventListener("keydown", (e) => {
 
@@ -25,24 +24,32 @@ document.addEventListener("keydown", (e) => {
         greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) + 5 + "px";
 
     }
+    else if (e.key === "q") {
+        userAlive = false;
+    }
+
 });
 
-
-const truckEl = document.querySelector("#truck-body");
+const truckEl = document.getElementByID("#truckID");
 
 function driveRight() {
 
 }
 
-function driveLeft() {
-    
-    //truckEl.style.left = parseFloat(truckEl.style.left || 0) - 1000 + "px";
-    console.log("testing");
-    truckEl.style.background = 'blue';
+async function driveLeft() {
 
+    for (let i = 0; i < 10; i++) {
+
+        truckEl.style.left = parseFloat(truckEl.style.left || 0) - 5 + "px";
+        
+    }
 }
 
-/*document.addEventListener("load", () => {
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+document.addEventListener("load", () => {
 
     truckEl.style.left = parseFloat(truckEl.style.left || 0) - 1000 + "px";
 

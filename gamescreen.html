@@ -9,7 +9,7 @@
         <title>Frogger</title>
     </head>
 
-    <body>
+    <body onload="driveLeft()">
 
         <header>
         </header>
@@ -34,7 +34,7 @@
             </div>
             <div class="highwayOne">
                 <div id="line"></div>
-                <div class="truck">
+                <div id="truckID" class="truck">
                     <div id ="truck-body"></div>
                     <div id ="truck-front"></div>
                     <div id ="left-wheel"></div>
@@ -56,7 +56,7 @@
             </div>
             <div class="highwayThree">
                 <div id="line"></div>
-                <div class="truck">
+                <div id="truckID" class="truck">
                     <div id ="truck-body"></div>
                     <div id ="truck-front"></div>
                     <div id ="left-wheel"></div>
@@ -73,8 +73,8 @@
             </div>
             <div class="highwayFive">
                 <div id="line"></div>
-                <div class="truck">
-                    <div id ="truck-body" onload="driveLeft()"></div>
+                <div id = "truckID" class="truck">
+                    <div id ="truck-body"></div>
                     <div id ="truck-front"></div>
                     <div id ="left-wheel"></div>
                     <div id ="right-wheel"></div>
