@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="homescreenCSS.css">
+
+        <title>Welcome to Frogger!</title>
+    </head>
+
+    <body>
+
+        <header>
+            <h1 class="titleFrogger"> Frogger 2.0</h1>
+            <br>
+        </header>
+
+        <main>
+
+            <div class="road">
+                <div class="line"></div>
+                <div class="truck">
+                    <div id ="truck-body"></div>
+                    <div id ="truck-front"></div>
+                    <div id ="left-wheel"></div>
+                    <div id ="right-wheel"></div>
+                </div>
+                <div class="frog">
+                    <div id="frog-body"></div>
+                    <div id="left-eye"></div>
+                    <div id="left-pupil"></div>
+                    <div id="right-eye"></div>
+                    <div id="right-pupil"></div>
+                    <div id="smile"></div>
+                    <div id="left-foot"></div>
+                    <div id="right-foot"></div>
+                  </div>
+            </div>
+            <br>
+            <form id="loginForm" method="get" action="gamescreen.html">
+                <label for="login" action="gamescreen.html">Login</label>
+                <input type="text" id="login" name="varLogin" placeholder="Press Enter to Play"/>
+            </form>
+            <br>
+            <button id = "createFrog"><a id="createFrogText" href="createfrog.html">Create New Frog</a></button>
+            <br>
+
+        </main>
+
+        <footer>
+            <button id="quitButton">Quit</button>
+        </footer>
+
+    </body>
+
+
+</html>
