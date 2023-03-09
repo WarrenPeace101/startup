@@ -376,6 +376,7 @@ footer {
     border-radius: 40%;
     background: #55CC00;
     left: 22vw;
+    top: 0;
 
   }
 
@@ -389,7 +390,6 @@ footer {
 #leaveGameText {
     color: white;
 }
-
 
 .livechat {
     color: white;
