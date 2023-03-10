@@ -108,7 +108,7 @@ footer {
 
 }
 
-#log {
+#logOne {
     position: relative;
     top: 15px;
     left: 30vw;
@@ -118,14 +118,25 @@ footer {
 
 }
 
-#log2 {
+#logTwo {
 
     position: relative;
     top: 15px;
-    left: 85vw;
+    left: 50vw;
     height: 35px;
     width: 100px;
     background-color: brown;
+
+}
+
+#logThree {
+
+  position: relative;
+  top: 15px;
+  left: 55vw;
+  height: 35px;
+  width: 100px;
+  background-color: brown;
 
 }
 
@@ -206,7 +217,7 @@ footer {
 }
 
 .truck {
-
+  position: relative;
 }
 
 #truck-body {
@@ -250,7 +261,7 @@ footer {
   }
 
   .car {
-
+    position: relative;
   }
 
   #car-body {
@@ -271,7 +282,7 @@ footer {
     background: black;
     border-radius: 40%;
     left: 31vw;
-    bottom:5px;
+    bottom: 5px;
     height: 17px;
     width: 17px; 
   }
