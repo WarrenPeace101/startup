@@ -31,13 +31,64 @@ document.addEventListener("keydown", (e) => {
 
 });
 
+const flyOneEl = document.getElementById("fly");
+const flyTwoEl = document.getElementById("fly2");
+const flyThreeEl = document.getElementById("fly3");
+const flyFourEl = document.getElementById("fly4");
+const flyFiveEl = document.getElementById("fly5");
+
 async function eatFly() {
 
     while (1) {
 
-        if (parseFloat(greenFrogEl.style.top || 0) < -660) {
+        if ((flyOneEl.style.visibility === 'hidden') && (flyTwoEl.style.visibility === 'hidden') &&
+         (flyThreeEl.style.visibility === 'hidden') && (flyFourEl.style.visibility === 'hidden') && (flyFiveEl.style.visibility === 'hidden'))
+         {
+            flyOneEl.style.visibility = 'visible';
+            flyTwoEl.style.visibility = 'visible';
+            flyThreeEl.style.visibility = 'visible';
+            flyFourEl.style.visibility = 'visible';
+            flyFiveEl.style.visibility = 'visible';
+        }
 
-            greenFrogEl.style.top = 10;
+
+        if (parseFloat(greenFrogEl.style.top || 0) < -640) {
+
+            if ((parseFloat(greenFrogEl.style.left || 0) > -250) && ((parseFloat(greenFrogEl.style.left || 0) < -200))) {
+
+                greenFrogEl.style.top = 10;
+                flyOneEl.style.visibility = 'hidden';
+
+            }
+
+            if ((parseFloat(greenFrogEl.style.left || 0) > -15) && ((parseFloat(greenFrogEl.style.left || 0) < 55))) {
+
+                greenFrogEl.style.top = 10;
+                flyTwoEl.style.visibility = 'hidden';
+
+            }
+
+            if ((parseFloat(greenFrogEl.style.left || 0) > 300) && ((parseFloat(greenFrogEl.style.left || 0) < 350))) {
+
+                greenFrogEl.style.top = 10;
+                flyThreeEl.style.visibility = 'hidden';
+
+            }
+
+            if ((parseFloat(greenFrogEl.style.left || 0) > 600) && ((parseFloat(greenFrogEl.style.left || 0) < 650))) {
+
+                greenFrogEl.style.top = 10;
+                flyFourEl.style.visibility = 'hidden';
+
+            }
+
+            if ((parseFloat(greenFrogEl.style.left || 0) > 900) && ((parseFloat(greenFrogEl.style.left || 0) < 950))) {
+
+                greenFrogEl.style.top = 10;
+                flyFiveEl.style.visibility = 'hidden';
+
+            }
+
         }
 
         await sleep(200);
@@ -120,6 +171,10 @@ function sleep(ms) {
 async function hitCar() {
 
     while (1) {
+
+        /*if ((Math.abs(greenFrogEl.style.top - truckThreeEl.style.top) < 20) && (Math.abs(greenFrogEl.style.left - truckThreeEl.style.left) < 20)) {
+            greenFrogEl.style.top = 10;
+        }*/
 
         /*if ((Math.abs((parseFloat(greenFrogEl.style.top || 0) + 100) - parseFloat(carOneEl.style.top || 0)) < 50) &&
         (Math.abs(parseFloat(greenFrogEl.style.left || 0) - parseFloat(carOneEl.style.left || 0)) < 40))
