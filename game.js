@@ -31,6 +31,21 @@ document.addEventListener("keydown", (e) => {
 
 });
 
+async function eatFly() {
+
+    while (1) {
+
+        if (parseFloat(greenFrogEl.style.top || 0) < -660) {
+
+            greenFrogEl.style.top = 10;
+        }
+
+        await sleep(200);
+    }
+}
+
+
+
 const truckOneEl = document.getElementById("truckOneID");
 const truckTwoEl = document.getElementById("truckTwoID");
 const truckThreeEl = document.getElementById("truckThreeID");
@@ -73,6 +88,8 @@ const carOneEl = document.getElementById("carOneID");
 const carTwoEl = document.getElementById("carTwoID");
 const logTwoEl = document.getElementById("logTwo");
 
+
+
 async function driveRight() {
 
     while (1) {
@@ -101,6 +118,20 @@ async function driveRight() {
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
+
+async function hitCar() {
+
+    while (1) {
+
+        if (parseFloat(greenFrogEl.style.top || 0) === (parseFloat(carOneEl.style.top || 0))) {
+
+            greenFrogEl.style.top = 10;
+        }
+
+        await sleep(300);
+        
+    }
+}
 
 document.addEventListener("load", () => {
 
