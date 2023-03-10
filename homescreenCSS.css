@@ -229,6 +229,10 @@ footer {
     outline-color: black;
   }
 
+  #aboutMeText {
+    color: white;
+  }
+
   ::placeholder {
     color: white;
   }
