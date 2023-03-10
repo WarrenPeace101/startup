@@ -26,6 +26,8 @@ About Me: https://warrenfrogger.click/
 
 I've had a lot of fun (and a little bit of sweat) learning the different CSS elements. I combined different elements together to create a frog, a truck, a car, and some other stuff! I also played around with the borders of the page for a while (using flex and relative), even though they are still a little off. I've learned that changing even one tiny detail in the CSS can completely throw off the entire page, so I'm not sure if I'll change it much more. But still I think it's super cool that you can have so much customizaiton.
 
+JavaScript is a load of fun. So far I've added movement abilities for the frog (WASD), which is a little glitchy but works overall. You can move over to the flies on the far side of the map and "eat" them, which will send you back to the front (don't worry though, they'll be back once you're done). I also spent a while customizing the movement of the trucks and cars. I haven't implemented collisions yet, but hopefully soon! I've learned that you have to be very specific about exactly where the left and top elements are located in order for the server to register a connection.
+
 ## Simon Project
 
 So far I've played around with the raw HTML files from the Simon project. I messed with the SVG, changing the shapes of the Simon buttons. I also played around with various minor features, such as tweeking the scoreboard. I really enjoyed updating the icon to Simon Peter hehe. So far I've learned basic HTML formatting, and why something like CSS is so necessary. I also think that the script for uploading files to my server is pretty cool.
