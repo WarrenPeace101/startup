@@ -44,8 +44,6 @@ async function eatFly() {
     }
 }
 
-
-
 const truckOneEl = document.getElementById("truckOneID");
 const truckTwoEl = document.getElementById("truckTwoID");
 const truckThreeEl = document.getElementById("truckThreeID");
@@ -123,11 +121,12 @@ async function hitCar() {
 
     while (1) {
 
-        if (parseFloat(greenFrogEl.style.top || 0) === (parseFloat(carOneEl.style.top || 0))) {
-
+        /*if ((Math.abs((parseFloat(greenFrogEl.style.top || 0) + 100) - parseFloat(carOneEl.style.top || 0)) < 50) &&
+        (Math.abs(parseFloat(greenFrogEl.style.left || 0) - parseFloat(carOneEl.style.left || 0)) < 40))
+        {
             greenFrogEl.style.top = 10;
         }
-
+*/
         await sleep(300);
         
     }
