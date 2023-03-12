@@ -172,20 +172,76 @@ async function hitCar() {
 
     while (1) {
 
-        /*if ((Math.abs(greenFrogEl.style.top - truckThreeEl.style.top) < 20) && (Math.abs(greenFrogEl.style.left - truckThreeEl.style.left) < 20)) {
-            greenFrogEl.style.top = 10;
-        }*/
-
-        /*if ((Math.abs((parseFloat(greenFrogEl.style.top || 0) + 100) - parseFloat(carOneEl.style.top || 0)) < 50) &&
-        (Math.abs(parseFloat(greenFrogEl.style.left || 0) - parseFloat(carOneEl.style.left || 0)) < 40))
-        {
-            greenFrogEl.style.top = 10;
+        if (parseFloat(greenFrogEl.style.top) < -370  && parseFloat(greenFrogEl.style.top) > -450 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(truckOneEl.style.left) + 600)) < 50){
+            greenFrogEl.style.top = 15;
         }
-*/
-        await sleep(300);
+
+        if ((parseFloat(greenFrogEl.style.top) < -290) && (parseFloat(greenFrogEl.style.top) > -385) &&
+        (Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(carOneEl.style.left || 0)) - 90) < 40))
+        {
+            greenFrogEl.style.top = 15;
+        }
+
+        if (parseFloat(greenFrogEl.style.top) < -160  && parseFloat(greenFrogEl.style.top) > -235 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(truckTwoEl.style.left) + 600)) < 50){
+            greenFrogEl.style.top = 15;
+        }
+
+        if ((parseFloat(greenFrogEl.style.top) < -80) && (parseFloat(greenFrogEl.style.top) > -170) &&
+        (Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(carTwoEl.style.left || 0)) - 100) < 40))
+        {
+            greenFrogEl.style.top = 15;
+        }
+
+        if (parseFloat(greenFrogEl.style.top) < -10  && parseFloat(greenFrogEl.style.top) > -100 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(truckThreeEl.style.left) + 600)) < 50){
+            greenFrogEl.style.top = 15;
+        }
+
+        if (parseFloat(greenFrogEl.style.left) < -400) {
+            greenFrogEl.style.left = 300;
+            greenFrogEl.style.top = 15;
+        }
+
+        if (parseFloat(greenFrogEl.style.left) > 1200) {
+            greenFrogEl.style.left = 300;
+            greenFrogEl.style.top = 15;
+        }
+
+        if (parseFloat(greenFrogEl.style.top) > 25) {
+            greenFrogEl.style.left = 300;
+            greenFrogEl.style.top = 15;
+        }
+
+        if (parseFloat(greenFrogEl.style.top) < -750) {
+            greenFrogEl.style.left = 300;
+            greenFrogEl.style.top = 15;
+        }
+        
+        await sleep(100);
         
     }
 }
+
+async function rideLog() {
+
+    while(1) {
+
+        while (parseFloat(greenFrogEl.style.top) < -590  && parseFloat(greenFrogEl.style.top) > -650 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(logOneEl.style.left)) + 300) < 50){
+            greenFrogEl.style.left = parseFloat(greenFrogEl.style.left) - 5 + "px";
+        }
+
+        while (parseFloat(greenFrogEl.style.top) < -515  && parseFloat(greenFrogEl.style.top) > -570 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(logTwoEl.style.left)) + 300) < 50){
+            greenFrogEl.style.left = parseFloat(greenFrogEl.style.left) + 5 + "px";
+        }
+
+        while (parseFloat(greenFrogEl.style.top) < -460  && parseFloat(greenFrogEl.style.top) > -515 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(logThreeEl.style.left)) + 300) < 50){
+            greenFrogEl.style.left = parseFloat(greenFrogEl.style.left) - 15 + "px";
+        }
+    
+        await sleep(100);
+
+    }
+}
+
 
 document.addEventListener("load", () => {
 
