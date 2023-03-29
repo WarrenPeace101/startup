@@ -1,0 +1,19 @@
+{
+  "name": "startup",
+  "version": "1.0.0",
+  "description": "Imagine you are all alone in your basement, trying to get the absolute perfect run. You've spent hours hopping across lily pads and side-stepping semi-trucks. You finally did it! A new high score! All is well in the world. And then your grandpa scoffs from the back of the room, saying that he can do it better. A direct challenge to your pride. You must respond.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "mongodb": "^5.1.0",
+    "uuid": "^9.0.0"
+  }
+}
