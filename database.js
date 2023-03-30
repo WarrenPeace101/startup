@@ -15,20 +15,20 @@ const url = 'mongodb+srv://${userName}:${password}@${hostname}';
 const client = new MongoClient(url);
 const userCollection = client.db('frogger').collection('user');
 
-function getUser(email) {
-    return userCollection.findOne({email : email});
+function getUser(frogName) {
+    return userCollection.findOne({frogName : frogName});
 }
 
 function getUserByToken(token) {
     return userCollection.findOne({token : token});
 }
 
-async function createUser(email, password) {
+async function createUser(frogName, password) {
 
     const passwordHash = await bycrypt.hash(password, 10);
 
     const user = {
-        email : email,
+        frogName : frogName,
         password : passwordHash, 
         token : uuid.v4()
     };

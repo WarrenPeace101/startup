@@ -18,10 +18,10 @@ app.use('/api', apiRouter);
 
 apiRouter.post('auth/create', async (req, res) => {
 
-    if (await DB.getUser(req.body.email)) {
-        res.status(409).send({msg: "User Exists!"});
+    if (await DB.getUser(req.body.frogName)) {
+        res.status(409).send({msg: "Frog Already Exists!"});
     } else {
-        const user = await DB.createUser(req.body.email, req.body.password);
+        const user = await DB.createUser(req.body.frogName, req.body.password);
 
         setAuthCookie(res, user.token);
 
@@ -32,7 +32,7 @@ apiRouter.post('auth/create', async (req, res) => {
 })
 
 apiRouter.post('auth/login', async (req, res) => {
-    const user = await DB.getUser(req.body.email);
+    const user = await DB.getUser(req.body.frogName);
 
     if (user) {
         if (await bcrypt.compare(req.body.password, user.password)) {
@@ -52,10 +52,10 @@ apiRouter.delete('auth/logout', (_req, res) => {
 })
 
 apiRouter.get('/user/:email', async (req, res) => {
-    const user = await DB.getUser(req.params.email)
+    const user = await DB.getUser(req.params.frogName)
     if (user) {
         const token = req?.cookies.token;
-        res.send({email : user.email, authenticated: token === user.token});
+        res.send({frogName : user.frogName, authenticated: token === user.token});
         return;
     }
     else {
