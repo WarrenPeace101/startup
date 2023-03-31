@@ -1,6 +1,7 @@
 (async () => {
     let authenticated = false;
     const userName = localStorage.getItem('userName');
+
     if (userName) {
         const nameEl = document.querySelector('#userName');
         nameEl.value = userName;
@@ -13,7 +14,6 @@
     }
 
 })();
-
 
 async function createFrog() {
     attemptCreateFrog('/api/auth/create');
@@ -50,7 +50,6 @@ function logout() {
   }
 
   async function getUser(frogName) {
-    let scores = [];
     
     const response = await fetch(`/api/user/${frogName}`);
     if (response.status === 200) {
