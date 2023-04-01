@@ -1,4 +1,4 @@
-(async () => {
+/*(async () => {
     let authenticated = false;
     const userName = localStorage.getItem('userName');
 
@@ -13,7 +13,7 @@
         document.querySelector('#playerName').textContent = userName;
     }
 
-})();
+})();*/
 
 async function createFrog() {
     attemptCreateFrog('/api/auth/create');
@@ -32,8 +32,8 @@ async function attemptCreateFrog(endpoint) {
     const body = await response.json();
 
     if (response?.status === 200) {
-        localStorage.setItem('userName', userName);
-        window.location.href = 'play.html';
+        localStorage.setItem('userName', frogName);
+        window.location.href = 'gamescreen.html';
     }
     else {
         const modalEl = document.querySelector('#msgModal');
@@ -42,13 +42,13 @@ async function attemptCreateFrog(endpoint) {
         msgModal.show();
     }
 }
-
+/*
 function logout() {
     fetch(`/api/auth/logout`, {
       method: 'delete',
     }).then(() => (window.location.href = '/'));
   }
-
+*/
   async function getUser(frogName) {
     
     const response = await fetch(`/api/user/${frogName}`);

@@ -1,4 +1,4 @@
-const MongoClient = require('mongodb');
+const { MongoClient } = require('mongodb');
 const bcrypt = require('bcrypt');
 const uuid = require('uuid');
 
@@ -10,7 +10,7 @@ if ((!userName) || (!password) || (!hostname)) {
     throw Error('Set environment variables first');
 }
 
-const url = 'mongodb+srv://${userName}:${password}@${hostname}';
+const url = `mongodb+srv://${userName}:${password}@${hostname}`;
 
 const client = new MongoClient(url);
 const userCollection = client.db('frogger').collection('user');

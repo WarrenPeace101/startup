@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const DB = require('database.js');
+const DB = require('./database.js');
 
 const app = express();
 
