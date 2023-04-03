@@ -20,10 +20,14 @@ async function createFrog() {
 }
 
 async function attemptCreateFrog(endpoint) {
+debugger
+
+    const frogInput = document.getElementById("frogName").value;
+    const myPassword = document.getElementById("password").value;
 
     const response = await fetch(endpoint, {
         method : 'post',
-        body: JSON.stringify({frogName : frogName, password : password}),
+        body: JSON.stringify({frogName : frogInput, password : myPassword}),
         headers: {
             'Content-type': 'application/json; charset = UTF-8'
         },
@@ -58,3 +62,7 @@ function logout() {
   
     return null;
   }
+
+  function play() {
+    window.location.href = 'gamescreen.html';
+  } 

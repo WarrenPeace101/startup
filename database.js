@@ -25,7 +25,7 @@ function getUserByToken(token) {
 
 async function createUser(frogName, password) {
 
-    const passwordHash = await bycrypt.hash(password, 10);
+    const passwordHash = await bcrypt.hash(password, 10);
 
     const user = {
         frogName : frogName,

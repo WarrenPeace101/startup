@@ -16,18 +16,18 @@ app.use(express.static('public'));
 var apiRouter = express.Router();
 app.use('/api', apiRouter);
 
-apiRouter.post('auth/create', async (req, res) => {
-
+apiRouter.post('/auth/create', async (req, res) => {
+console.log(req.body)
     if (await DB.getUser(req.body.frogName)) {
         res.status(409).send({msg: "Frog Already Exists!"});
     } else {
         const user = await DB.createUser(req.body.frogName, req.body.password);
 
-        setAuthCookie(res, user.token);
-
-        res.send({
+        //setAuthCookie(res, user.token);
+        /*res.send({
             id : user._id,
-        });
+        });*/
+        res.send({id:"myID"});
     }
 })
 
@@ -63,7 +63,7 @@ apiRouter.get('/user/:email', async (req, res) => {
     }
 });
 
-var secureApiRouter = express.Router();
+/*var secureApiRouter = express.Router();
 apiRouter.use(secureApiRouter);
 
 secureApiRouter.use( async (req, res, next) => {
@@ -74,7 +74,7 @@ secureApiRouter.use( async (req, res, next) => {
   } else {
     res.status(401).send({ msg: 'Unauthorized' });
   }
-});
+});*/
 
 app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });
