@@ -20,7 +20,6 @@ async function createFrog() {
 }
 
 async function attemptCreateFrog(endpoint) {
-debugger
 
     const frogInput = document.getElementById("frogName").value;
     const myPassword = document.getElementById("password").value;
@@ -33,11 +32,10 @@ debugger
         },
     })
 
-    const body = await response.json();
-
+    //const body = await response.json();
     if (response?.status === 200) {
         localStorage.setItem('userName', frogName);
-        window.location.href = 'gamescreen.html';
+        //window.location.href = 'gamescreen.html';
     }
     else {
         const modalEl = document.querySelector('#msgModal');
@@ -46,6 +44,32 @@ debugger
         msgModal.show();
     }
 }
+
+async function login() {
+  window.location.href = "createfrog.html";
+  attemptLogin('/api/auth/login');
+}
+
+async function attemptLogin(endpoint) {
+
+  const myPassword = document.getElementById("myLogin").value;
+
+  const response = await fetch(endpoint, {
+    method : 'post',
+    body: JSON.stringify({frogName : frogInput, password : myPassword}),
+    headers: {
+        'Content-type': 'application/json; charset = UTF-8'
+    },
+})
+
+if (response?.status === 200) {
+  window.location.href = 'gamescreen.html';
+}
+else {
+  window.location.href = 'gamescreen.html';
+}
+}
+
 /*
 function logout() {
     fetch(`/api/auth/logout`, {

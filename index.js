@@ -17,27 +17,26 @@ var apiRouter = express.Router();
 app.use('/api', apiRouter);
 
 apiRouter.post('/auth/create', async (req, res) => {
-console.log(req.body)
+
     if (await DB.getUser(req.body.frogName)) {
-        res.status(409).send({msg: "Frog Already Exists!"});
+        //res.status(409).send({msg: 'Frog Already Exists!'});
     } else {
         const user = await DB.createUser(req.body.frogName, req.body.password);
-
         //setAuthCookie(res, user.token);
-        /*res.send({
+        res.send({
             id : user._id,
-        });*/
-        res.send({id:"myID"});
+        });
     }
 })
 
-apiRouter.post('auth/login', async (req, res) => {
+apiRouter.post('/auth/login', async (req, res) => {
     const user = await DB.getUser(req.body.frogName);
 
     if (user) {
         if (await bcrypt.compare(req.body.password, user.password)) {
-            setAuthCookie(res, user.token);
+            //setAuthCookie(res, user.token);
             res.send({id : user._id});
+            window.location.href = 'gamescreen.html';
             return;
         }
     }
