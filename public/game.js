@@ -1,4 +1,5 @@
-let userAlive = true;
+const GameEndEvent = 'gameEnd';
+const GameStartEvent = 'gameStart';
 
 const greenFrogEl = document.getElementById("frogID");
 
@@ -25,10 +26,6 @@ document.addEventListener("keydown", (e) => {
         greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) + 5 + "px";
 
     }
-    else if (e.key === "q") {
-        userAlive = false;
-    }
-
 });
 
 const flyOneEl = document.getElementById("fly");
@@ -49,6 +46,7 @@ async function eatFly() {
             flyThreeEl.style.visibility = 'visible';
             flyFourEl.style.visibility = 'visible';
             flyFiveEl.style.visibility = 'visible';
+            this.broadcastEvent(userName, GameEndEvent);
         }
 
 
@@ -88,9 +86,7 @@ async function eatFly() {
                 flyFiveEl.style.visibility = 'hidden';
 
             }
-
         }
-
         await sleep(200);
     }
 }
@@ -136,8 +132,6 @@ async function driveLeft() {
 const carOneEl = document.getElementById("carOneID");
 const carTwoEl = document.getElementById("carTwoID");
 const logTwoEl = document.getElementById("logTwo");
-
-
 
 async function driveRight() {
 
@@ -216,8 +210,7 @@ async function hitCar() {
             greenFrogEl.style.top = 15;
         }
         
-        await sleep(100);
-        
+        await sleep(100);    
     }
 }
 
@@ -238,13 +231,41 @@ async function rideLog() {
         }
     
         await sleep(100);
-
     }
 }
 
+function configureWebSocket() {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    this.socket.onopen = (event) => {
+        this.displayMsg('system', 'game', 'connected');
+    };
+    this.socket.onclose = (event) => {
+        this.displayMsg('system', 'game', 'disconnected');
+    };
+    this.socket.onmessage = async (event) => {
+        const msg = JSON.parse(await event.data.text());
+        if (msg.type === GameEndEvent) {
+          this.displayMsg('player', msg.from, `won the game!`);
+      };
+    }
+}
+
+function displayMsg(cls, from, msg) {
+    const chatText = document.querySelector('#liveChat');
+    chatText.innerHTML =
+      `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
+  }
+
+function broadcastEvent(from, type, value) {
+    const event = {
+      from: from,
+      type: type,
+      value: value,
+    };
+    this.socket.send(JSON.stringify(event));
+  }
 
 document.addEventListener("load", () => {
-
     truckEl.style.left = parseFloat(truckEl.style.left || 0) - 1000 + "px";
-
 });

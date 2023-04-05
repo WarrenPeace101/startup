@@ -402,7 +402,7 @@ footer {
     color: white;
 }
 
-.livechat {
+#livechat {
     color: white;
     background-color: #8972c2;
     outline-style: solid;
