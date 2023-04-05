@@ -30,17 +30,31 @@ apiRouter.post('/auth/create', async (req, res) => {
 })
 
 apiRouter.post('/auth/login', async (req, res) => {
-    const user = await DB.getUser(req.body.frogName);
+
+    //console.log(req.body);
+
+    const user = await DB.getUserByPassword(req.body.password);
+
+    console.log(user);
 
     if (user) {
-        if (await bcrypt.compare(req.body.password, user.password)) {
+
+        //if (await bcrypt.compare(req.body.password, user.password)) {
+          if (user.password === req.body.password) {
+        
             //setAuthCookie(res, user.token);
             res.send({id : user._id});
-            window.location.href = 'gamescreen.html';
-            return;
+            action = 'gamescreen.html';
+            //return;
+        }
+        else {
+            console.log("user, no bycrpyt");
+            res.status(401).send({msg: 'Unauthorized'});
+            console.log("user, no bycrpyt");
         }
     }
     else {
+        console.log("no user");
         res.status(401).send({msg: 'Unauthorized'});
     }
 })

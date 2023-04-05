@@ -19,17 +19,21 @@ function getUser(frogName) {
     return userCollection.findOne({frogName : frogName});
 }
 
+function getUserByPassword(password) {
+    return userCollection.findOne({password: password});
+}
+
 function getUserByToken(token) {
     return userCollection.findOne({token : token});
 }
 
 async function createUser(frogName, password) {
 
-    const passwordHash = await bcrypt.hash(password, 10);
+    //const passwordHash = await bcrypt.hash(password, 10);
 
     const user = {
         frogName : frogName,
-        password : passwordHash, 
+        password : password, 
         token : uuid.v4()
     };
 
@@ -39,6 +43,7 @@ async function createUser(frogName, password) {
 
 module.exports = {
     getUser,
+    getUserByPassword,
     getUserByToken,
     createUser
   };

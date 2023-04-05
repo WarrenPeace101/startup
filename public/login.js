@@ -1,19 +1,3 @@
-/*(async () => {
-    let authenticated = false;
-    const userName = localStorage.getItem('userName');
-
-    if (userName) {
-        const nameEl = document.querySelector('#userName');
-        nameEl.value = userName;
-        const user = await getUser(nameEl.value);
-        authenticated = user?.authenticated;
-    }
-
-    if (authenticated) {
-        document.querySelector('#playerName').textContent = userName;
-    }
-
-})();*/
 
 async function createFrog() {
     attemptCreateFrog('/api/auth/create');
@@ -45,8 +29,8 @@ async function attemptCreateFrog(endpoint) {
     }
 }
 
-async function login() {
-  window.location.href = "createfrog.html";
+async function login(event) {
+  event.preventDefault();
   attemptLogin('/api/auth/login');
 }
 
@@ -55,8 +39,8 @@ async function attemptLogin(endpoint) {
   const myPassword = document.getElementById("myLogin").value;
 
   const response = await fetch(endpoint, {
-    method : 'post',
-    body: JSON.stringify({frogName : frogInput, password : myPassword}),
+    method : 'POST',
+    body: JSON.stringify({password : myPassword}),
     headers: {
         'Content-type': 'application/json; charset = UTF-8'
     },
@@ -66,7 +50,7 @@ if (response?.status === 200) {
   window.location.href = 'gamescreen.html';
 }
 else {
-  window.location.href = 'gamescreen.html';
+  console.log("wrong");
 }
 }
 
@@ -77,6 +61,7 @@ function logout() {
     }).then(() => (window.location.href = '/'));
   }
 */
+
   async function getUser(frogName) {
     
     const response = await fetch(`/api/user/${frogName}`);
