@@ -19,13 +19,6 @@ async function attemptCreateFrog(endpoint) {
     //const body = await response.json();
     if (response?.status === 200) {
         localStorage.setItem('userName', frogName);
-        //window.location.href = 'gamescreen.html';
-    }
-    else {
-        const modalEl = document.querySelector('#msgModal');
-        modalEl.querySelector('.modal-body').textContent = `⚠ Error: ${body.msg}`;
-        const msgModal = new bootstrap.Modal(modalEl, {});
-        msgModal.show();
     }
 }
 
@@ -46,7 +39,10 @@ async function attemptLogin(endpoint) {
     },
 })
 
+const frogName = response.body.frogInput;
+
 if (response?.status === 200) {
+  localStorage.setItem('userName', frogName);
   window.location.href = 'gamescreen.html';
 }
 }
