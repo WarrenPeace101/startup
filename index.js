@@ -31,20 +31,18 @@ apiRouter.post('/auth/create', async (req, res) => {
 
 apiRouter.post('/auth/login', async (req, res) => {
 
-    //console.log(req.body);
+    console.log(req.body);
 
     const user = await DB.getUserByPassword(req.body.password);
 
-    console.log(user);
+    //console.log(user);
 
     if (user) {
 
         //if (await bcrypt.compare(req.body.password, user.password)) {
           if (user.password === req.body.password) {
-        
             //setAuthCookie(res, user.token);
             res.send({id : user._id});
-            action = 'gamescreen.html';
             //return;
         }
         else {

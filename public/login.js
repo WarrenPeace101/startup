@@ -49,18 +49,7 @@ async function attemptLogin(endpoint) {
 if (response?.status === 200) {
   window.location.href = 'gamescreen.html';
 }
-else {
-  console.log("wrong");
 }
-}
-
-/*
-function logout() {
-    fetch(`/api/auth/logout`, {
-      method: 'delete',
-    }).then(() => (window.location.href = '/'));
-  }
-*/
 
   async function getUser(frogName) {
     
@@ -68,10 +57,5 @@ function logout() {
     if (response.status === 200) {
       return response.json();
     }
-  
     return null;
   }
-
-  function play() {
-    window.location.href = 'gamescreen.html';
-  } 
