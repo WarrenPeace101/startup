@@ -15,26 +15,21 @@ async function attemptCreateFrog(endpoint) {
             'Content-type': 'application/json; charset = UTF-8'
         },
     })
-
-    //const body = await response.json();
-    if (response?.status === 200) {
-        localStorage.setItem('userName', frogName);
-    }
 }
 
 async function login(event) {
-  event.preventDefault();
+  //event.preventDefault();
   attemptLogin('/api/auth/login');
 }
 
 async function attemptLogin(endpoint) {
 
-  const myPassword = document.getElementById("myLogin").value;
-  var frogName;
+  const myUsername = document.getElementById("myLoginUsername").value;
+  const myPassword = document.getElementById("myLoginPassword").value;
 
   const response = await fetch(endpoint, {
     method : 'POST',
-    body: JSON.stringify({password : myPassword}),
+    body: JSON.stringify({frogName : myUsername, password : myPassword}),
     headers: {
         'Content-type': 'application/json; charset = UTF-8'
     },
@@ -51,7 +46,7 @@ if (response?.status === 200) {
   });
  /* const response2 = await fetch(`/api/password/${myPassword}`);
   console.log(response2);*/
-  //localStorage.setItem('userName', response2.body.frogName);
+  localStorage.setItem('userName', myUsername);
   window.location.href = 'gamescreen.html';
 }
 }

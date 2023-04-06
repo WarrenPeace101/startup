@@ -25,7 +25,9 @@ apiRouter.post('/auth/create', async (req, res) => {
     });
         //res.status(409).send({msg: 'Frog Already Exists!'});
     } else {
-        const user = await DB.createUser(req.body.frogName, req.body.password);
+
+        const passwordHash = await bcrypt.hash(req.body.password, 10);
+        const user = await DB.createUser(req.body.frogName, passwordHash);
         //setAuthCookie(res, user.token);
         res.send({
             id : user._id,
@@ -58,14 +60,14 @@ apiRouter.post('/auth/login', async (req, res) => {
 
     //console.log(req.body);
 
-    const user = await DB.getUserByPassword(req.body.password);
-
+    const user = await DB.getUser(req.body.frogName);
+  
     console.log(user);
 
     if (user) {
 
-        //if (await bcrypt.compare(req.body.password, user.password)) {
-          if (user.password === req.body.password) {
+        if (await bcrypt.compare(req.body.password, user.password)) {
+          //if (user.password === req.body.password) {
             //setAuthCookie(res, user.token);
             res.send({id : user._id});
             //return;
