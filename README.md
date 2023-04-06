@@ -28,6 +28,8 @@ I've had a lot of fun (and a little bit of sweat) learning the different CSS ele
 
 JavaScript is a load of fun. So far I've added movement abilities for the frog (WASD), which is a little glitchy but works overall. You can move over to the flies on the far side of the map and "eat" them, which will send you back to the front (don't worry though, they'll be back once you're done). I also spent a while customizing the movement of the trucks and cars. I just added collisions, which will kill your frog and send him back to the start. You can ride along the logs as well! I've learned that you have to be very specific about exactly where the left and top elements are located in order for the server to register a connection.
 
+Implementing the next step was the hardest yet. I was able to get a database registered and connected to my login credentials (which is just a password you enter). I wasn't able to encrypt the password, but I still was happy with that outcome. I then continued by adding some functionality to the live chat at the bottom of the gamescreen. When someone wins the game (who isn't yourself), a message is sent in the chat. I haven't figured out how to personalize that message yet. Overall this step was difficult but I learned a lot and I played a lot of Frogger in the process.
+
 ## Simon Project
 
 So far I've played around with the raw HTML files from the Simon project. I messed with the SVG, changing the shapes of the Simon buttons. I also played around with various minor features, such as tweeking the scoreboard. I really enjoyed updating the icon to Simon Peter hehe. So far I've learned basic HTML formatting, and why something like CSS is so necessary. I also think that the script for uploading files to my server is pretty cool.
