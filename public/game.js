@@ -1,6 +1,6 @@
 const GameEndEvent = 'gameEnd';
 const GameStartEvent = 'gameStart';
-const userName = localStorage.getItem('userName') ?? 'Mystery player';
+
 
 const greenFrogEl = document.getElementById("frogID");
 
@@ -37,6 +37,8 @@ const flyFiveEl = document.getElementById("fly5");
 
 async function eatFly() {
 
+    const userName = localStorage.getItem('userName') ?? 'Mystery player';
+
     while (1) {
 
         if ((flyOneEl.style.visibility === 'hidden') && (flyTwoEl.style.visibility === 'hidden') &&
@@ -47,7 +49,8 @@ async function eatFly() {
             flyThreeEl.style.visibility = 'visible';
             flyFourEl.style.visibility = 'visible';
             flyFiveEl.style.visibility = 'visible';
-            this.broadcastEvent(userName, GameEndEvent, {});
+            console.log(userName);
+            this.broadcastEvent(userName, GameEndEvent, userName);
         }
 
 

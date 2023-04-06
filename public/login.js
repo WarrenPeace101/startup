@@ -39,7 +39,9 @@ async function attemptLogin(endpoint) {
     },
 })
 
-const frogName = response.body.frogInput;
+console.log(response);
+const frogName = response.body.frogName;
+console.log(frogName);
 
 if (response?.status === 200) {
   localStorage.setItem('userName', frogName);
