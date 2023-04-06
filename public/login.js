@@ -30,6 +30,7 @@ async function login(event) {
 async function attemptLogin(endpoint) {
 
   const myPassword = document.getElementById("myLogin").value;
+  var frogName;
 
   const response = await fetch(endpoint, {
     method : 'POST',
@@ -39,12 +40,18 @@ async function attemptLogin(endpoint) {
     },
 })
 
-console.log(response);
-const frogName = response.body.frogName;
-console.log(frogName);
-
 if (response?.status === 200) {
-  localStorage.setItem('userName', frogName);
+
+  /*const response2 = await fetch('/api/auth/create', {
+    method : 'POST',
+    body: JSON.stringify({frogName : frogName}),
+    headers: {
+        'Content-type': 'application/json; charset = UTF-8'
+    },
+  });
+ /* const response2 = await fetch(`/api/password/${myPassword}`);
+  console.log(response2);*/
+  //localStorage.setItem('userName', response2.body.frogName);
   window.location.href = 'gamescreen.html';
 }
 }

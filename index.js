@@ -20,6 +20,9 @@ app.use('/api', apiRouter);
 apiRouter.post('/auth/create', async (req, res) => {
 
     if (await DB.getUser(req.body.frogName)) {
+      res.send({
+        id : user._id,
+    });
         //res.status(409).send({msg: 'Frog Already Exists!'});
     } else {
         const user = await DB.createUser(req.body.frogName, req.body.password);
@@ -30,13 +33,34 @@ apiRouter.post('/auth/create', async (req, res) => {
     }
 })
 
+/*apiRouter.get('/auth/create', async (req, res) => {
+  const user = await DB.getUserByPassword(req.params.password)
+  if (user) {
+      const token = req?.cookies.token;
+      res.send({frogName : user.frogName, authenticated: token === user.token});
+      return;
+  }
+});*/
+
+apiRouter.get('/user/:password', async (req, res) => {
+  const user = await DB.getUser(req.params.password)
+  if (user) {
+      const token = req?.cookies.token;
+      res.send({frogName : user.frogName, authenticated: token === user.token});
+      return;
+  }
+  else {
+      res.status(404).send({msg : 'Unknown'});
+  }
+});
+
 apiRouter.post('/auth/login', async (req, res) => {
 
-    console.log(req.body);
+    //console.log(req.body);
 
     const user = await DB.getUserByPassword(req.body.password);
 
-    //console.log(user);
+    console.log(user);
 
     if (user) {
 

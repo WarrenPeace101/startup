@@ -37,7 +37,9 @@ const flyFiveEl = document.getElementById("fly5");
 
 async function eatFly() {
 
-    const userName = localStorage.getItem('userName') ?? 'Mystery player';
+    const userName = localStorage.getItem('userName') ?? "Mystery player";
+    
+    console.log(userName);
 
     while (1) {
 
@@ -52,7 +54,6 @@ async function eatFly() {
             console.log(userName);
             this.broadcastEvent(userName, GameEndEvent, userName);
         }
-
 
         if (parseFloat(greenFrogEl.style.top || 0) < -640) {
 
@@ -128,9 +129,7 @@ async function driveLeft() {
         if (parseFloat(logThreeEl.style.left || 0) < 0) {
             logThreeEl.style.left = 1500;
         }
-
     }
- 
 }
 
 const carOneEl = document.getElementById("carOneID");
