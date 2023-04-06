@@ -232,6 +232,10 @@ footer {
     color: white;
   }
 
+  #quote {
+    color: white;
+  }
+
   ::placeholder {
     color: white;
   }

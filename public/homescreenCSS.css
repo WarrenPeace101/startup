@@ -233,6 +233,23 @@ footer {
     color: white;
   }
 
+  #quoteBox {
+    color: white;
+    text-align: center;
+    position: relative;
+    height: 150px;
+    width: 400px;
+    right: -50px;
+    bottom: 300px;
+    background: green;
+    outline-style: solid;
+    outline-color: black;
+  }
+
+  #quoteText {
+    color: white;
+  }
+
   ::placeholder {
     color: white;
   }
