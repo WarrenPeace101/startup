@@ -5,23 +5,22 @@ const GameStartEvent = 'gameStart';
 const greenFrogEl = document.getElementById("frogID");
 
 document.addEventListener("keydown", (e) => {
-
     if (e.key === "a") {
 
         greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) - 5 + 'px';
         
     }
-    else if (e.key === "w") {
+    if (e.key === "w") {
 
         greenFrogEl.style.top = parseFloat(greenFrogEl.style.top || 0) - 5 + 'px';
         
     }
-    else if (e.key === "s") {
+    if (e.key === "s") {
 
         greenFrogEl.style.top = parseFloat(greenFrogEl.style.top || 0) + 5 + "px";
 
     }
-    else if (e.key === "d") {
+    if (e.key === "d") {
 
 
         greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) + 5 + "px";
@@ -38,8 +37,12 @@ const flyFiveEl = document.getElementById("fly5");
 async function eatFly() {
 
     const userName = localStorage.getItem('userName') ?? "Mystery player";
-    
-    console.log(userName);
+    var flyOneEaten = false;
+    var flyTwoEaten = false;
+    var flyThreeEaten = false;
+    var flyFourEaten = false;
+    var flyFiveEaten = false;
+
 
     while (1) {
 
@@ -51,44 +54,57 @@ async function eatFly() {
             flyThreeEl.style.visibility = 'visible';
             flyFourEl.style.visibility = 'visible';
             flyFiveEl.style.visibility = 'visible';
-            console.log(userName);
+            flyOneEaten = false;
+            flyTwoEaten = false;
+            flyThreeEaten = false;
+            flyFourEaten = false;
+            flyFiveEaten = false;
             this.broadcastEvent(userName, GameEndEvent, userName);
         }
 
         if (parseFloat(greenFrogEl.style.top || 0) < -640) {
 
-            if ((parseFloat(greenFrogEl.style.left || 0) > -250) && ((parseFloat(greenFrogEl.style.left || 0) < -200))) {
+            if ((parseFloat(greenFrogEl.style.left || 0) > -250) && ((parseFloat(greenFrogEl.style.left || 0) < -200)) &&
+            flyOneEaten === false) {
 
                 greenFrogEl.style.top = 10;
                 flyOneEl.style.visibility = 'hidden';
-
+                flyOneEaten = true;
             }
 
-            if ((parseFloat(greenFrogEl.style.left || 0) > -15) && ((parseFloat(greenFrogEl.style.left || 0) < 55))) {
+            if ((parseFloat(greenFrogEl.style.left || 0) > -15) && ((parseFloat(greenFrogEl.style.left || 0) < 55))
+            && flyTwoEaten === false) {
 
                 greenFrogEl.style.top = 10;
                 flyTwoEl.style.visibility = 'hidden';
+                flyTwoEaten = true;
 
             }
 
-            if ((parseFloat(greenFrogEl.style.left || 0) > 300) && ((parseFloat(greenFrogEl.style.left || 0) < 350))) {
+            if ((parseFloat(greenFrogEl.style.left || 0) > 300) && ((parseFloat(greenFrogEl.style.left || 0) < 350))
+            && flyThreeEaten === false) {
 
                 greenFrogEl.style.top = 10;
                 flyThreeEl.style.visibility = 'hidden';
+                flyThreeEaten = true;
 
             }
 
-            if ((parseFloat(greenFrogEl.style.left || 0) > 600) && ((parseFloat(greenFrogEl.style.left || 0) < 650))) {
+            if ((parseFloat(greenFrogEl.style.left || 0) > 600) && ((parseFloat(greenFrogEl.style.left || 0) < 650))
+            && flyFourEaten === false) {
 
                 greenFrogEl.style.top = 10;
                 flyFourEl.style.visibility = 'hidden';
+                flyFourEaten = true;
 
             }
 
-            if ((parseFloat(greenFrogEl.style.left || 0) > 900) && ((parseFloat(greenFrogEl.style.left || 0) < 950))) {
+            if ((parseFloat(greenFrogEl.style.left || 0) > 900) && ((parseFloat(greenFrogEl.style.left || 0) < 950))
+            && flyFiveEaten === false) {
 
                 greenFrogEl.style.top = 10;
                 flyFiveEl.style.visibility = 'hidden';
+                flyFiveEaten = true;
 
             }
         }
@@ -219,21 +235,118 @@ async function hitCar() {
 
 async function rideLog() {
 
+    var onLogOne = false;
+    var onLogTwo = false;
+    var onLogThree = false;
+
     while(1) {
 
         while (parseFloat(greenFrogEl.style.top) < -590  && parseFloat(greenFrogEl.style.top) > -650 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(logOneEl.style.left)) + 300) < 50){
             greenFrogEl.style.left = parseFloat(greenFrogEl.style.left) - 5 + "px";
         }
 
+        if (parseFloat(greenFrogEl.style.top) < -570  && parseFloat(greenFrogEl.style.top) > -670 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(logOneEl.style.left)) + 300) < 70) {
+            onLogOne = true;
+        }
+
+        if (!(parseFloat(greenFrogEl.style.top) < -570  && parseFloat(greenFrogEl.style.top) > -670 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(logOneEl.style.left)) + 300) < 70)) {
+            onLogOne = false;
+        }
+
         while (parseFloat(greenFrogEl.style.top) < -515  && parseFloat(greenFrogEl.style.top) > -570 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(logTwoEl.style.left)) + 300) < 50){
             greenFrogEl.style.left = parseFloat(greenFrogEl.style.left) + 5 + "px";
         }
 
-        while (parseFloat(greenFrogEl.style.top) < -460  && parseFloat(greenFrogEl.style.top) > -515 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(logThreeEl.style.left)) + 300) < 50){
+        if (parseFloat(greenFrogEl.style.top) < -495  && parseFloat(greenFrogEl.style.top) > -590 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(logTwoEl.style.left)) + 300) < 70) {
+            onLogTwo = true;
+        }
+
+        if (!(parseFloat(greenFrogEl.style.top) < -495  && parseFloat(greenFrogEl.style.top) > -590 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(logTwoEl.style.left)) + 300) < 70)) {
+            onLogTwo = false;
+        }
+
+        while (parseFloat(greenFrogEl.style.top) < -450  && parseFloat(greenFrogEl.style.top) > -515 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(logThreeEl.style.left)) + 300) < 50){
             greenFrogEl.style.left = parseFloat(greenFrogEl.style.left) - 15 + "px";
+        }
+
+        if (parseFloat(greenFrogEl.style.top) < -410  && parseFloat(greenFrogEl.style.top) > -535 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(logThreeEl.style.left)) + 300) < 70) {
+            onLogThree = true;
+        }
+
+        if (!(parseFloat(greenFrogEl.style.top) < -410  && parseFloat(greenFrogEl.style.top) > -535 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(logThreeEl.style.left)) + 300) < 70)) {
+            onLogThree = false;
+        }
+        
+        if (parseFloat(greenFrogEl.style.top) > -650 && parseFloat(greenFrogEl.style.top) < -460 && onLogOne === false && onLogTwo === false && onLogThree === false) {
+            greenFrogEl.style.left = 300;
+            greenFrogEl.style.top = 15; 
         }
     
         await sleep(100);
+    }
+}
+
+async function hitBarrier() {
+
+    while (1) {
+
+        if ((parseFloat(greenFrogEl.style.top) < -200 && parseFloat(greenFrogEl.style.top) > -330) 
+        && (parseFloat(greenFrogEl.style.left) > 300 && parseFloat(greenFrogEl.style.left) < 330)){
+            greenFrogEl.style.left = 300;
+        }
+        if ((parseFloat(greenFrogEl.style.top) < -200 && parseFloat(greenFrogEl.style.top) > -330) 
+        && (parseFloat(greenFrogEl.style.left) > 455 && parseFloat(greenFrogEl.style.left) < 485)) {
+            greenFrogEl.style.left = 485;
+        }
+        if ((parseFloat(greenFrogEl.style.top) < -300 && parseFloat(greenFrogEl.style.top) > -330) 
+        && (parseFloat(greenFrogEl.style.left) > 300 && parseFloat(greenFrogEl.style.left) < 485)) {
+            greenFrogEl.style.top = -330;
+        }
+        if ((parseFloat(greenFrogEl.style.top) < -200 && parseFloat(greenFrogEl.style.top) > -230) 
+        && (parseFloat(greenFrogEl.style.left) > 300 && parseFloat(greenFrogEl.style.left) < 485)) {
+            greenFrogEl.style.top = -200;
+        }
+
+        if ((parseFloat(greenFrogEl.style.top) < -200 && parseFloat(greenFrogEl.style.top) > -330) 
+        && (parseFloat(greenFrogEl.style.left) > -170 && parseFloat(greenFrogEl.style.left) < -140)){
+            greenFrogEl.style.left = -170;
+        }
+
+        if ((parseFloat(greenFrogEl.style.top) < -200 && parseFloat(greenFrogEl.style.top) > -330) 
+        && (parseFloat(greenFrogEl.style.left) > -5 && parseFloat(greenFrogEl.style.left) < 25)) {
+            greenFrogEl.style.left = 25;
+        }
+
+        if ((parseFloat(greenFrogEl.style.top) < -300 && parseFloat(greenFrogEl.style.top) > -330) 
+        && (parseFloat(greenFrogEl.style.left) > -140 && parseFloat(greenFrogEl.style.left) < 25)) {
+            greenFrogEl.style.top = -330;
+        }
+
+        if ((parseFloat(greenFrogEl.style.top) < -200 && parseFloat(greenFrogEl.style.top) > -230) 
+        && (parseFloat(greenFrogEl.style.left) > -140 && parseFloat(greenFrogEl.style.left) < 25)) {
+            greenFrogEl.style.top = -200;
+        }
+
+        if ((parseFloat(greenFrogEl.style.top) < -200 && parseFloat(greenFrogEl.style.top) > -330) 
+        && (parseFloat(greenFrogEl.style.left) > 825 && parseFloat(greenFrogEl.style.left) < 855)){
+            greenFrogEl.style.left = 825;
+        }
+
+        if ((parseFloat(greenFrogEl.style.top) < -200 && parseFloat(greenFrogEl.style.top) > -330) 
+        && (parseFloat(greenFrogEl.style.left) > 995 && parseFloat(greenFrogEl.style.left) < 1025)) {
+            greenFrogEl.style.left = 1025;
+        }
+
+        if ((parseFloat(greenFrogEl.style.top) < -300 && parseFloat(greenFrogEl.style.top) > -330) 
+        && (parseFloat(greenFrogEl.style.left) > 825 && parseFloat(greenFrogEl.style.left) < 1025)) {
+            greenFrogEl.style.top = -330;
+        }
+        if ((parseFloat(greenFrogEl.style.top) < -200 && parseFloat(greenFrogEl.style.top) > -230) 
+        && (parseFloat(greenFrogEl.style.left) > 825 && parseFloat(greenFrogEl.style.left) < 1025)) {
+            greenFrogEl.style.top = -200;
+        }
+
+        await sleep(100)
     }
 }
 

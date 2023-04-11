@@ -9,13 +9,13 @@
         <title>Frogger</title>
     </head>
 
-    <body onload="driveRight(), driveLeft(), eatFly(), hitCar(), rideLog(), configureWebSocket()" >
+    <body onload="driveRight(), driveLeft(), eatFly(), hitCar(), rideLog(), configureWebSocket(), hitBarrier()" >
 
         <header>
         </header>
 
         <main>
-
+            
             <div class="flyZone">
                 <div id="fly"></div>
                 <div id="fly2"></div>
@@ -98,7 +98,8 @@
         </main>
 
         <footer>
-
+            <div id="deathScreen"></div>
+            <div id="drownScreen"></div>
             <br>
             <div id="liveChat">Chat:</div>
             <br>

@@ -170,7 +170,7 @@ footer {
     position: relative;
     height: 70px;
     width: 130px;
-    background: gray;
+    background:#9a461b;
     left: 15vw;
 }
 
@@ -178,7 +178,7 @@ footer {
     position: relative;
     height: 74px;
     width: 130px;
-    background: gray;
+    background: #9a461b;
     left: 45vw;
     bottom: 8.5vh;
 }
@@ -187,7 +187,7 @@ footer {
     position: relative;
     height: 74px;
     width: 130px;
-    background: gray;
+    background: #9a461b;
     left: 80vw;
     bottom: 17.3vh;
 }
@@ -408,4 +408,14 @@ footer {
     outline-style: solid;
     outline-color: black;
 
+}
+
+#deathScreen {
+  position: relative;
+  height:1000px;
+  width: 1000px;
+  background: red;
+  opacity: 100%;
+  background-size: cover;
+  z-index: 5;
 }
