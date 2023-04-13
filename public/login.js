@@ -1,4 +1,12 @@
 
+function toCreateFrog() {
+  window.location.href = 'createfrog.html';
+}
+
+function toHomeScreen() {
+  window.location.href = 'index.html';
+}
+
 async function createFrog() {
     attemptCreateFrog('/api/auth/create');
 }
@@ -23,6 +31,8 @@ async function attemptCreateFrog(endpoint) {
             'Content-type': 'application/json; charset = UTF-8'
         },
     })
+
+    window.location.href = 'index.html';
 }
 
 async function login(event) {

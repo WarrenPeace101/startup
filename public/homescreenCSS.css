@@ -92,10 +92,6 @@ footer {
     width: 100px;
   }
 
-  .frog {
-
-  }
-
   #left-eye {
     height: 40px;
     width: 50px;
@@ -104,16 +100,29 @@ footer {
     background: #55CC00;
     left: 21.3vw;
     bottom: 68vh;
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkgreen
+  }
+
+  #left-eye-white {
+    height: 30px;
+    width: 40px;
+    position: relative;
+    border-radius: 40%;
+    background: white;
+    left: 21.6vw;
+    bottom: 72.1vh;
   }
   
   #left-pupil {
-    height: 28px;
-    width: 38px;
+    height: 20px;
+    width: 30px;
     position: relative;
     border-radius: 40%;
     background: #000000;
-    left: 21.7vw;
-    bottom: 72vh;
+    left: 22vw;
+    bottom: 75vh;
   }
   
   #right-eye {
@@ -123,17 +132,30 @@ footer {
     border-radius: 40%;
     background: #55CC00;
     left: 26vw;
-    bottom: 76vh;
+    bottom: 78.8vh;
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkgreen
+  }
+
+  #right-eye-white {
+    height: 30px;
+    width: 40px;
+    position: relative;
+    border-radius: 40%;
+    background: white;
+    left: 26.4vw;
+    bottom: 83vh;
   }
   
   #right-pupil {
-    height: 28px;
-    width: 38px;
+    height: 20px;
+    width: 30px;
     position: relative;
     border-radius: 40%;
     background: #000000;
-    left: 26.5vw;
-    bottom: 80vh;
+    left: 26.75vw;
+    bottom: 86vh;
     
   }
   
@@ -145,7 +167,7 @@ footer {
     border-bottom: 3px solid #000000;
     border-radius: 20%;
     left: 24vw;
-    bottom: 77vh;
+    bottom: 83vh;
   }
   
   #right-foot {
@@ -154,8 +176,11 @@ footer {
     position: relative;
     border-radius: 40%;
     background: #55DD00;
-    left: 26vw;
-    bottom: 76vh;
+    left: 25.8vw;
+    bottom: 81.7vh;
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkgreen;
   }
   
   #left-foot {
@@ -164,8 +189,11 @@ footer {
     position: relative;
     border-radius: 40%;
     background: #55DD00;
-    left: 22vw;
-    bottom: 74.5vh;
+    left: 21.8vw;
+    bottom: 80vh;
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkgreen;
   }
   
   #frog-body {
@@ -176,7 +204,9 @@ footer {
     background: #55CC00;
     bottom: 55vh;
     left: 22vw;
-
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkgreen
   }
 
   #loginForm {
@@ -242,13 +272,10 @@ footer {
     width: 200px;
     left: 55vw;
     top: 7vh;
+    color: white;
     background: green;
     outline-style: solid;
     outline-color: black;
-  }
-
-  #createFrogText {
-    color: white;
   }
 
   #quitButton {
