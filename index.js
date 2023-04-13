@@ -19,30 +19,21 @@ app.use('/api', apiRouter);
 
 apiRouter.post('/auth/create', async (req, res) => {
 
-    if (await DB.getUser(req.body.frogName)) {
+    const user = await DB.getUser(req.body.frogName);
+
+    if (user) {
       res.send({
         id : user._id,
     });
-        //res.status(409).send({msg: 'Frog Already Exists!'});
     } else {
 
         const passwordHash = await bcrypt.hash(req.body.password, 10);
-        const user = await DB.createUser(req.body.frogName, passwordHash);
-        //setAuthCookie(res, user.token);
+        const user = await DB.createUser(req.body.frogName, passwordHash, req.body.frogColor);
         res.send({
             id : user._id,
         });
     }
 })
-
-/*apiRouter.get('/auth/create', async (req, res) => {
-  const user = await DB.getUserByPassword(req.params.password)
-  if (user) {
-      const token = req?.cookies.token;
-      res.send({frogName : user.frogName, authenticated: token === user.token});
-      return;
-  }
-});*/
 
 apiRouter.get('/user/:password', async (req, res) => {
   const user = await DB.getUser(req.params.password)
@@ -58,29 +49,12 @@ apiRouter.get('/user/:password', async (req, res) => {
 
 apiRouter.post('/auth/login', async (req, res) => {
 
-    //console.log(req.body);
-
     const user = await DB.getUser(req.body.frogName);
-  
-    console.log(user);
-
+ 
     if (user) {
-
         if (await bcrypt.compare(req.body.password, user.password)) {
-          //if (user.password === req.body.password) {
-            //setAuthCookie(res, user.token);
-            res.send({id : user._id});
-            //return;
+            res.send(user);
         }
-        else {
-            console.log("user, no bycrpyt");
-            res.status(401).send({msg: 'Unauthorized'});
-            console.log("user, no bycrpyt");
-        }
-    }
-    else {
-        console.log("no user");
-        res.status(401).send({msg: 'Unauthorized'});
     }
 })
 
@@ -101,19 +75,6 @@ apiRouter.get('/user/:email', async (req, res) => {
     }
 });
 
-/*var secureApiRouter = express.Router();
-apiRouter.use(secureApiRouter);
-
-secureApiRouter.use( async (req, res, next) => {
-    authToken = req.cookies[authCookieName];
-    const user = await DB.getUserByToken(authToken);
-    if (user) {
-    next();
-  } else {
-    res.status(401).send({ msg: 'Unauthorized' });
-  }
-});*/
-
 app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });
 });
@@ -121,14 +82,6 @@ app.use(function (err, req, res, next) {
 app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
-
-function setAuthCookie(res, authToken) {
-  res.cookie(authCookieName, authToken, {
-    secure: true,
-    httpOnly: true,
-    sameSite: 'strict',
-  });
-}
 
 const httpService = app.listen(port, () => {
   console.log(`Listening on port ${port}`);

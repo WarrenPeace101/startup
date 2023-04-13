@@ -314,7 +314,10 @@ footer {
     position: relative;
     border-radius: 40%;
     background: #55CC00;
-    left: 22vw;
+    border-width: 1px;
+    border-style: solid;
+    border-color: darkgreen;
+    left: 21.8vw;
     bottom: 7vh;
   }
   
@@ -324,8 +327,8 @@ footer {
     position: relative;
     border-radius: 40%;
     background: #000000;
-    left: 22.3vw;
-    bottom: 9vh;
+    left: 22.2vw;
+    bottom: 9.1vh;
   }
   
   #right-eye {
@@ -334,8 +337,11 @@ footer {
     position: relative;
     border-radius: 40%;
     background: #55CC00;
+    border-width: 1px;
+    border-style: solid;
+    border-color: darkgreen;
     left: 24.2vw;
-    bottom: 11vh;
+    bottom: 11.3vh;
   }
   
   #right-pupil {
@@ -344,8 +350,8 @@ footer {
     position: relative;
     border-radius: 40%;
     background: #000000;
-    left: 24.5vw;
-    bottom: 13vh;
+    left: 24.6vw;
+    bottom: 13.4vh;
     
   }
   
@@ -366,8 +372,11 @@ footer {
     position: relative;
     border-radius: 40%;
     background: #55DD00;
-    left: 24vw;
-    bottom: 11vh;
+    border-width: 1px;
+    border-style: solid;
+    border-color: darkgreen;
+    left: 24.2vw;
+    bottom: 11.9vh;
   }
   
   #left-foot {
@@ -376,8 +385,11 @@ footer {
     position: relative;
     border-radius: 40%;
     background: #55DD00;
+    border-width: 1px;
+    border-style: solid;
+    border-color: darkgreen;
     left: 22vw;
-    bottom: 10vh;
+    bottom: 10.5vh;
   }
   
   #frog-body {
@@ -386,6 +398,9 @@ footer {
     position: relative;
     border-radius: 40%;
     background: #55CC00;
+    border-width: 1px;
+    border-style: solid;
+    border-color: darkgreen;
     left: 22vw;
     top: 0;
 
@@ -407,15 +422,34 @@ footer {
     background-color: #8972c2;
     outline-style: solid;
     outline-color: black;
-
 }
 
 #deathScreen {
-  position: relative;
-  height:1000px;
-  width: 1000px;
-  background: red;
-  opacity: 100%;
-  background-size: cover;
+  position: absolute; 
+  background-color: red;
+  display: none;
+  opacity: 50%;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+}
+
+#drownScreen {
+  position: absolute; 
+  background-color: blue;
+  display: none;
+  opacity: 50%;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+}
+
+#winScreen {
+  position: absolute; 
+  background-color: gold;
+  display: none;
+  opacity: 50%;
+  height: 100%;
+  width: 100%;
   z-index: 5;
 }

@@ -7,10 +7,18 @@ async function attemptCreateFrog(endpoint) {
 
     const frogInput = document.getElementById("frogName").value;
     const myPassword = document.getElementById("password").value;
+    var frogColor = "greenFrog";
+  
+    if (document.getElementById("blueFrog").checked) {
+      frogColor = document.getElementById("blueFrog").value;
+    }
+    if (document.getElementById("pinkFrog").checked) {
+      frogColor = document.getElementById("pinkFrog").value;
+    }
 
     const response = await fetch(endpoint, {
         method : 'post',
-        body: JSON.stringify({frogName : frogInput, password : myPassword}),
+        body: JSON.stringify({frogName : frogInput, password : myPassword, frogColor : frogColor}),
         headers: {
             'Content-type': 'application/json; charset = UTF-8'
         },
@@ -18,7 +26,6 @@ async function attemptCreateFrog(endpoint) {
 }
 
 async function login(event) {
-  //event.preventDefault();
   attemptLogin('/api/auth/login');
 }
 
@@ -26,31 +33,28 @@ async function attemptLogin(endpoint) {
 
   const myUsername = document.getElementById("myLoginUsername").value;
   const myPassword = document.getElementById("myLoginPassword").value;
+  let frogColor = "greenFrog";
 
   const response = await fetch(endpoint, {
     method : 'POST',
-    body: JSON.stringify({frogName : myUsername, password : myPassword}),
+    body: JSON.stringify({frogName : myUsername, password : myPassword, frogColor: frogColor}),
     headers: {
         'Content-type': 'application/json; charset = UTF-8'
     },
 })
 
+console.log(response.body);
+
 if (response?.status === 200) {
 
-  /*const response2 = await fetch('/api/auth/create', {
-    method : 'POST',
-    body: JSON.stringify({frogName : frogName}),
-    headers: {
-        'Content-type': 'application/json; charset = UTF-8'
-    },
-  });
- /* const response2 = await fetch(`/api/password/${myPassword}`);
-  console.log(response2);*/
+  const myResponse = await response.json();
+
+  frogColor = myResponse.frogColor;
   localStorage.setItem('userName', myUsername);
+  localStorage.setItem('frogColor', frogColor);
   window.location.href = 'gamescreen.html';
 }
 }
-
   async function getUser(frogName) {
     
     const response = await fetch(`/api/user/${frogName}`);

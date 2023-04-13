@@ -27,13 +27,12 @@ function getUserByToken(token) {
     return userCollection.findOne({token : token});
 }
 
-async function createUser(frogName, password) {
-
-    //const passwordHash = await bcrypt.hash(password, 10);
+async function createUser(frogName, password, frogColor) {
 
     const user = {
         frogName : frogName,
-        password : password, 
+        password : password,
+        frogColor: frogColor, 
         token : uuid.v4()
     };
 

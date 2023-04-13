@@ -1,8 +1,38 @@
 const GameEndEvent = 'gameEnd';
 const GameStartEvent = 'gameStart';
-
-
 const greenFrogEl = document.getElementById("frogID");
+
+let color = localStorage.getItem("frogColor");
+const frogBody = document.getElementById("frog-body");
+const frogLeftEye = document.getElementById("left-eye");
+const frogRightEye = document.getElementById("right-eye");
+const frogLeftFoot = document.getElementById("left-foot");
+const frogRightFoot = document.getElementById("right-foot");
+
+if (color === "pinkFrog") {
+    frogBody.style.background = "pink";
+    frogLeftEye.style.background = "pink";
+    frogRightEye.style.background = "pink";
+    frogLeftFoot.style.background = "pink";
+    frogRightFoot.style.background = "pink";
+    frogBody.style.borderColor = "#d406d5";
+    frogLeftEye.style.borderColor = "#d406d5";
+    frogRightEye.style.borderColor = "#d406d5";
+    frogLeftFoot.style.borderColor = "#d406d5";
+    frogRightFoot.style.borderColor = "#d406d5";
+}
+else if (color === "blueFrog") {
+    frogBody.style.background = "#8167f6";
+    frogLeftEye.style.background = "#8167f6";
+    frogRightEye.style.background = "#8167f6";
+    frogLeftFoot.style.background = "#8167f6";
+    frogRightFoot.style.background = "#8167f6";
+    frogBody.style.borderColor = "#1905c8";
+    frogLeftEye.style.borderColor = "#1905c8";
+    frogRightEye.style.borderColor = "#1905c8";
+    frogLeftFoot.style.borderColor = "#1905c8";
+    frogRightFoot.style.borderColor = "#1905c8";
+}
 
 document.addEventListener("keydown", (e) => {
     if (e.key === "a") {
@@ -60,6 +90,7 @@ async function eatFly() {
             flyFourEaten = false;
             flyFiveEaten = false;
             this.broadcastEvent(userName, GameEndEvent, userName);
+            await win();
         }
 
         if (parseFloat(greenFrogEl.style.top || 0) < -640) {
@@ -187,46 +218,55 @@ async function hitCar() {
 
         if (parseFloat(greenFrogEl.style.top) < -370  && parseFloat(greenFrogEl.style.top) > -450 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(truckOneEl.style.left) + 600)) < 50){
             greenFrogEl.style.top = 15;
+            await death();
         }
 
         if ((parseFloat(greenFrogEl.style.top) < -290) && (parseFloat(greenFrogEl.style.top) > -385) &&
         (Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(carOneEl.style.left || 0)) - 90) < 40))
         {
             greenFrogEl.style.top = 15;
+            await death();
         }
 
         if (parseFloat(greenFrogEl.style.top) < -160  && parseFloat(greenFrogEl.style.top) > -235 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(truckTwoEl.style.left) + 600)) < 50){
             greenFrogEl.style.top = 15;
+            await death();
         }
 
         if ((parseFloat(greenFrogEl.style.top) < -80) && (parseFloat(greenFrogEl.style.top) > -170) &&
         (Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(carTwoEl.style.left || 0)) - 100) < 40))
         {
             greenFrogEl.style.top = 15;
+            await death();
         }
 
         if (parseFloat(greenFrogEl.style.top) < -10  && parseFloat(greenFrogEl.style.top) > -100 && Math.abs(parseFloat(greenFrogEl.style.left) - (parseFloat(truckThreeEl.style.left) + 600)) < 50){
             greenFrogEl.style.top = 15;
+            await death();
         }
 
         if (parseFloat(greenFrogEl.style.left) < -400) {
             greenFrogEl.style.left = 300;
             greenFrogEl.style.top = 15;
+            await death();
         }
 
         if (parseFloat(greenFrogEl.style.left) > 1200) {
             greenFrogEl.style.left = 300;
             greenFrogEl.style.top = 15;
+            await death();
         }
 
         if (parseFloat(greenFrogEl.style.top) > 25) {
             greenFrogEl.style.left = 300;
             greenFrogEl.style.top = 15;
+            await death();
         }
 
         if (parseFloat(greenFrogEl.style.top) < -750) {
             greenFrogEl.style.left = 300;
             greenFrogEl.style.top = 15;
+            await death();
         }
         
         await sleep(100);    
@@ -279,7 +319,8 @@ async function rideLog() {
         
         if (parseFloat(greenFrogEl.style.top) > -650 && parseFloat(greenFrogEl.style.top) < -460 && onLogOne === false && onLogTwo === false && onLogThree === false) {
             greenFrogEl.style.left = 300;
-            greenFrogEl.style.top = 15; 
+            greenFrogEl.style.top = 15;
+            await drown();
         }
     
         await sleep(100);
@@ -350,11 +391,37 @@ async function hitBarrier() {
     }
 }
 
+const deathEl = document.getElementById("deathScreen");
+const drownEl = document.getElementById("drownScreen");
+const winEl = document.getElementById("winScreen");
+
+async function death() {
+
+    deathEl.style.display = "block";
+    await sleep(100)
+    deathEl.style.display = "none";
+}
+
+async function drown() {
+
+    drownEl.style.display = "block";
+    await sleep(100)
+    drownEl.style.display = "none";
+}
+
+async function win() {
+
+    winEl.style.display = "block";
+    await sleep(500);
+    winEl.style.display = "none";
+
+}
+
 function configureWebSocket() {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     this.socket.onopen = (event) => {
-        this.displayMsg('system', 'game', 'connected');
+        this.displayMsg('system', 'game', "Good luck!");
     };
     this.socket.onclose = (event) => {
         this.displayMsg('system', 'game', 'disconnected');
