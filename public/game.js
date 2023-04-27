@@ -2,6 +2,7 @@ const GameEndEvent = 'gameEnd';
 const GameStartEvent = 'gameStart';
 const greenFrogEl = document.getElementById("frogID");
 
+let frogName = localStorage.getItem("userName");
 let color = localStorage.getItem("frogColor");
 const frogBody = document.getElementById("frog-body");
 const frogLeftEye = document.getElementById("left-eye");
@@ -34,29 +35,87 @@ else if (color === "blueFrog") {
     frogRightFoot.style.borderColor = "#1905c8";
 }
 
+var keyPress = {}
+
 document.addEventListener("keydown", (e) => {
     if (e.key === "a") {
-
-        greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) - 5 + 'px';
-        
+       // greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) - 5 + 'px';
+       keyPress["a"] = true;
     }
     if (e.key === "w") {
-
-        greenFrogEl.style.top = parseFloat(greenFrogEl.style.top || 0) - 5 + 'px';
-        
+        //greenFrogEl.style.top = parseFloat(greenFrogEl.style.top || 0) - 5 + 'px';
+        keyPress["w"] = true;
     }
     if (e.key === "s") {
-
-        greenFrogEl.style.top = parseFloat(greenFrogEl.style.top || 0) + 5 + "px";
-
+        //greenFrogEl.style.top = parseFloat(greenFrogEl.style.top || 0) + 5 + "px";
+        keyPress["s"] = true;
     }
     if (e.key === "d") {
-
-
-        greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) + 5 + "px";
-
-    }
+        //greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) + 5 + "px";
+        keyPress["d"] = true;
+    } 
 });
+
+document.addEventListener("keyup", (e) => {
+    if (e.key === "a") {
+        keyPress["a"] = false;
+     }
+     if (e.key === "w") {
+         keyPress["w"] = false;
+     }
+     if (e.key === "s") {
+         keyPress["s"] = false;
+     }
+     if (e.key === "d") {
+         keyPress["d"] = false;
+     } 
+}   
+);
+
+async function movement() {
+
+    while (1) {
+
+        if ((keyPress["a"]) && (!keyPress["w"]) && (!keyPress["s"]) && (!keyPress["d"])) {
+            greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) - 5 + 'px';
+        }
+
+        if (keyPress["a"] && keyPress["w"] && !keyPress["s"] && !keyPress["d"]) {
+            greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) - 3 + 'px';
+            greenFrogEl.style.top = parseFloat(greenFrogEl.style.top || 0) - 3 + 'px';
+            
+        }
+
+        if (keyPress["w"] && !keyPress["a"] && !keyPress["s"] && !keyPress["d"]) {
+            greenFrogEl.style.top = parseFloat(greenFrogEl.style.top || 0) - 5 + 'px';
+        }
+
+        if (keyPress["w"] && keyPress["d"] && !keyPress["s"] && !keyPress["a"]) {
+            greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) + 3 + "px";
+            greenFrogEl.style.top = parseFloat(greenFrogEl.style.top || 0) - 3 + 'px';
+        }
+
+        if (keyPress["d"] && !keyPress["w"] && !keyPress["s"] && !keyPress["a"]) {
+            greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) + 5 + "px";
+        }
+
+        if (keyPress["a"] && keyPress["s"] && !keyPress["w"] && !keyPress["d"]) {
+            greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) - 3 + "px";
+            greenFrogEl.style.top = parseFloat(greenFrogEl.style.top || 0) + 3 + "px";
+
+        }
+
+        if (keyPress["s"] && !keyPress["a"] && !keyPress["d"] && !keyPress["w"]) {
+            greenFrogEl.style.top = parseFloat(greenFrogEl.style.top || 0) + 5 + "px";
+        }
+
+        if (keyPress["d"] && keyPress["s"] && !keyPress["w"] && !keyPress["a"]) {
+            greenFrogEl.style.top = parseFloat(greenFrogEl.style.top || 0) + 3 + "px";
+            greenFrogEl.style.left = parseFloat(greenFrogEl.style.left || 0) + 3 + "px";
+        }
+        await sleep(35);
+    }
+}
 
 const flyOneEl = document.getElementById("fly");
 const flyTwoEl = document.getElementById("fly2");
@@ -89,7 +148,7 @@ async function eatFly() {
             flyThreeEaten = false;
             flyFourEaten = false;
             flyFiveEaten = false;
-            this.broadcastEvent(userName, GameEndEvent, userName);
+            this.broadcastEvent(frogName, GameEndEvent, {});
             await win();
         }
 
@@ -421,10 +480,11 @@ function configureWebSocket() {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     this.socket.onopen = (event) => {
-        this.displayMsg('system', 'game', "Good luck!");
+        this.displayMsg('system', 'game:', "WASD to move! Eat the flies to win!");
+        this.displayMsg('system', 'game:', `Good luck ${frogName}!`);
     };
     this.socket.onclose = (event) => {
-        this.displayMsg('system', 'game', 'disconnected');
+        this.displayMsg('system', 'game:', 'disconnected');
     };
     this.socket.onmessage = async (event) => {
         const msg = JSON.parse(await event.data.text());

@@ -21,9 +21,7 @@ class PeerProxy {
 
         ws.on('message', function message(data) {
           connections.forEach((c) => {
-            if (c.id !== connection.id) {
               c.ws.send(data);
-            }
           });
         });
 
